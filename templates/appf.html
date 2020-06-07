@@ -1,28 +1,36 @@
 {% extends 'base.html' %}
 
-{% block head %}
-<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-{& endblock %}
-
 {% block body %} 
 
     <h2 style="text-align: center;" >Register Form</h2>
-    <br><hr>
-    <form class="pure-form pure-form-aligned" style="text-align: center;" action="/" method="post">
+    <hr>
+    <form style="text-align: center;" action="/form" method="post">
+        
         <table>
             <tr>
-                <th>First Name</th>
-                <td><input type="text" name="fname" id=""></td>
+                <th><label for="ename">Employee Name</label></th>
+                <td><input type="text" name="ename" id="ename" placeholder="Enter Name" required></td>
             </tr>
             <tr>
-                <th>Last Name</th>
-                <td><input type="text" name="lname" id=""></td>
+                <th><label for="eid">Employee ID</label></th>
+                <td><input type="text" name="eid" id="eid" placeholder="Enter ID" required></td>
             </tr>
             <tr>
-                <th>Location</th>
-                <td><input type="text" name="loc" id=""></td>
+                <th><label for="edes">Designation</label></th>
+                <td><input type="text" name="edes" id="edes" placeholder="Enter Designation" required></td>
+            </tr>
+            <tr>
+                <th><label for="edept">Department</label></th>
+                <td><input type="text" name="edept" id="edept" placeholder="Enter Department Name" required></td>
+            </tr>
+            <tr>
+                <th><label for="eloc">Location</label></th>
+                <td><input type="text" name="eloc" id="eloc" placeholder="Enter Location" required></td>
             </tr>
         </table>
-        <br><input type="button" class="pure-button pure-button-active" value="Submit">
+        <br>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <br>
     </form>
 {% endblock %}
