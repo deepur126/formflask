@@ -4,10 +4,11 @@
 
 <div class="row" >
     <div class="col">
-        <h3>View Employee Form</h3>
+        <h3>View All Employee List</h3>
     </div>
     <div class="col-4">
-        <input class="w-10" style="float: left;" type="search" placeholder="Employee ID"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input class="w-10" style="float: left;" type="search" placeholder="Employee ID" name="empid">
+        <a href="/view/empid" ><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button></a>
     </div>
 </div><hr>
 
@@ -27,6 +28,7 @@
             <td>{{ e.desig }}</td>
             <td>{{ e.dept }}</td>
             <td>{{ e.loc }}</td>
+            <td class="no"><a href="/del/{{ e.id }}" ><button type="button" class="btn btn-danger">Delete</button></a></td>
         </tr>
     {% endfor %}
     <br>

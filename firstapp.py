@@ -30,12 +30,17 @@ def view():
     info = Empl.query.all()
     return render_template('view.html',info=info)
 
-@app.route('/view/<int:id>')
-def viewid(id):
+@app.route('/del/<int:id>')
+def delid(id):
     post = Empl.query.get_or_404(id)
     db.session.delete(post)
     db.session.commit()
     return redirect('/view')
+
+@app.route('/view/<int:id>')
+def viewid(id):
+    post = Empl.query.get_or_404(id)
+    return render_template('viewid.html',emp=post)
 
 @app.route('/form', methods=['GET','POST'])
 def reg():

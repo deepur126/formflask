@@ -7,3 +7,7 @@ table,td,th {
 tr, th , td {
     padding: 10px;
 }
+
+td.no{
+    border: 0ch;
+}

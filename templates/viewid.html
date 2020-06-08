@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col">
+        <h3>View Employee Form</h3>
+    </div>
+
+</div>
+<hr>
+
+<table>
+    <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Employee Designation</th>
+        <th>Employee Department</th>
+        <th>Employee Location</th>
+    </tr>
+    <tr>
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.desig }}</td>
+        <td>{{ emp.dept }}</td>
+        <td>{{ emp.loc }}</td>
+        <td class="no"><a href="/del/{{ emp.id }}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+    </tr>
+
+    <br>
+</table>
+<hr>
+
+{% endblock %}
