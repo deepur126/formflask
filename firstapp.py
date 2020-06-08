@@ -50,6 +50,11 @@ def reg():
         e_des = request.form['edes']
         e_dept = request.form['edept']
         e_loc = request.form['eloc']
+        
+        """if Empl.query.get_or_404(e_id):
+            info = Empl.query.all()
+            return render_template('view.html',msg='ID already exists',info=info)"""
+        
         new_empl = Empl(id=e_id, name=e_name, desig=e_des, dept=e_dept,loc=e_loc)
         db.session.add(new_empl)
         db.session.commit()

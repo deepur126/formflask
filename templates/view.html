@@ -1,38 +1,54 @@
 {% extends 'base.html' %}
 
+{% block head %}
+<script>
+    function send() {
+        var id = document.getElementById('empid').value;
+        if (id.length > 0) {
+            window.location.href = "/view/" + id;
+        }
+        else {
+            alert("pls enter valid id");
+        }
+
+    }
+</script>
+{% endblock %}
+
 {% block body %}
 
-<div class="row" >
+<div class="row">
     <div class="col">
         <h3>View All Employee List</h3>
     </div>
     <div class="col-4">
-        <input class="w-10" style="float: left;" type="search" placeholder="Employee ID" name="empid">
-        <a href="/view/empid" ><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button></a>
+        <input class="w-10" style="float: left;" type="search" placeholder="Employee ID" id="empid" value="">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="return send()">Search</button>
     </div>
-</div><hr>
-
+</div>
+<hr>
+{{ msg }}<br>
 <table>
     <tr>
-        <th >Employee ID</th>
-        <th >Employee Name</th>
-        <th >Employee Designation</th>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Employee Designation</th>
         <th>Employee Department</th>
         <th>Employee Location</th>
     </tr>
-   
+
     {% for e in info %}
-        <tr>
-            <td >{{ e.id }}</td>
-            <td>{{ e.name }}</td>
-            <td>{{ e.desig }}</td>
-            <td>{{ e.dept }}</td>
-            <td>{{ e.loc }}</td>
-            <td class="no"><a href="/del/{{ e.id }}" ><button type="button" class="btn btn-danger">Delete</button></a></td>
-        </tr>
+    <tr>
+        <td>{{ e.id }}</td>
+        <td>{{ e.name }}</td>
+        <td>{{ e.desig }}</td>
+        <td>{{ e.dept }}</td>
+        <td>{{ e.loc }}</td>
+        <td><a href="/del/{{ e.id }}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+    </tr>
     {% endfor %}
     <br>
 </table>
 <hr>
-  
+
 {% endblock %}
